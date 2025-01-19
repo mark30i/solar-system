@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сонячна система</title>
+    <style>
+        /* Основні стилі */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b3d91;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background-color: #09275d;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .planet-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            margin: 15px;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .planet-card img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        .planet-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+        .planet-name {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Сонячна система</h1>
+        <p>Пізнайте більше про планети та їх особливості.</p>
+    </header>
+
+    <div class="container" id="planetContainer">
+        <!-- Карточки планет будуть додані за допомогою JavaScript -->
+    </div>
+
+    <script>
+        // Дані про планети
+        const planets = [
+            {
+                name: "Меркурій",
+                image: "https://i.postimg.cc/y6SNxYLs/1.jpg",
+                description: "Найменша планета Сонячної системи."
+            },
+            {
+                name: "Венера",
+                image: "https://i.postimg.cc/pT3XCgXw/image.jpg",
+                description: "Друга планета від Сонця."
+            },
+            {
+                name: "Земля",
+                image: "https://i.postimg.cc/x1Q8WDyY/3F3F.webp",
+                description: "Наш дім - єдина відома планета з життям."
+            },
+            {
+                name: "Марс",
+                image: "https://i.postimg.cc/R0s063rV/image.jpg",
+                description: "Червона планета, відома своїми пиловими бурями."
+            },
+            {
+                name: "Юпітер",
+                image: "https://i.postimg.cc/7Y8Z28R7/2.jpg",
+                description: "Найбільша планета Сонячної системи."
+            },
+            {
+                name: "Сатурн",
+                image: "https://i.postimg.cc/0y95VGPy/3.jpg",
+                description: "Відомий своїми яскравими кільцями."
+            },
+            {
+                name: "Уран",
+                image: "https://i.postimg.cc/6Qm96DR8/4.jpg",
+                description: "Планета з нахиленою віссю обертання."
+            },
+            {
+                name: "Нептун",
+                image: "https://i.postimg.cc/pL0vkgss/5.jpg",
+                description: "Найвіддаленіша планета Сонячної системи."
+            }
+        ];
+
+        // Функція для створення карточок планет
+        function createPlanetCards() {
+            const container = document.getElementById('planetContainer');
+            planets.forEach(planet => {
+                const card = document.createElement('div');
+                card.className = 'planet-card';
+
+                card.innerHTML = `
+                    <img src="${planet.image}" alt="${planet.name}">
+                    <div class="planet-name">${planet.name}</div>
+                    <p>${planet.description}</p>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Виклик функції для додавання карточок
+        createPlanetCards();
+    </script>
+</body>
+</html>
